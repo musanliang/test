@@ -21,12 +21,7 @@
         default: false
       }
     },
-    data() {
-      return {
-        scroll: null,
-        message: '哈哈哈'
-      }
-    },
+   
     mounted() {
       // 1.创建BScroll对象
       this.scroll = new BScroll(this.$refs.wrapper, {
@@ -48,10 +43,13 @@
     },
     methods: {
       scrollTo(x, y, time=300) {
-        this.scroll.scrollTo(x, y, time)
+        this.scroll && this.scroll.scrollTo(x, y, time)
       },
       finishPullUp() {
-        this.scroll.finishPullUp()
+        this.scroll && this.scroll.finishPullUp()
+      },
+      refresh(){
+       this.scroll &&  this.scroll.refresh()
       }
     }
   }
